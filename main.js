@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require("electron");
+const { screen } = require("electron");
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -9,6 +10,9 @@ function createWindow() {
     fullscreenable: false,
     frame: false, 
     transparent: true,
+    x: screenWidth - windowWidth - 20,
+  y: 20,
+
     webPreferences: {
       contextIsolation: true
     }
@@ -21,7 +25,7 @@ app.whenReady().then(createWindow);
 const AutoLaunch = require('auto-launch');
 
 const appLauncher = new AutoLaunch({
-  name: 'Calendar~cer',   // any name
+  name: 'Calendar~cer',   
 });
 
 appLauncher.isEnabled().then((isEnabled) => {
