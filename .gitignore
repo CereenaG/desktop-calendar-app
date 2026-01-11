@@ -46,3 +46,8 @@ logs/
 # Electron Forge / Builder
 # =========================
 .electron/
+# Installers 
+*.exe
+*.msi
+*.dmg
+*.AppImage

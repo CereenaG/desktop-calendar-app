@@ -3,6 +3,18 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start":"electron ."
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^39.2.7",
+    "electron-builder": "^26.4.0"
+  },
+  "build": {
+    "appId": "com.yourname.app",
+    "productName": "MyElectronApp",
+    "directories": {
+      "output": "dist"
+    }
   }
 }
