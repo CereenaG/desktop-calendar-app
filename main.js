@@ -18,6 +18,16 @@ function createWindow() {
 }
 
 app.whenReady().then(createWindow);
+const AutoLaunch = require('auto-launch');
+
+const appLauncher = new AutoLaunch({
+  name: 'Calendar~cer',   // any name
+});
+
+appLauncher.isEnabled().then((isEnabled) => {
+  if (!isEnabled) appLauncher.enable();
+});
+
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();

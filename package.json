@@ -26,5 +26,8 @@
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true
     }
+  },
+  "dependencies": {
+    "auto-launch": "^5.0.6"
   }
 }
