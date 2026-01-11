@@ -1,17 +1,24 @@
-const { app, BrowserWindow } = require("electron");
-const { screen } = require("electron");
+const { app, BrowserWindow, screen } = require("electron");
+const AutoLaunch = require("auto-launch");
 
 function createWindow() {
+  const display = screen.getPrimaryDisplay();
+  const { width: screenWidth } = display.workAreaSize;
+
+  const windowWidth = 240;
+  const windowHeight = 252;
+
   const win = new BrowserWindow({
-    width: 240,
-    height: 252,
+    width: windowWidth,
+    height: windowHeight,
     resizable: false,
     maximizable: false,
     fullscreenable: false,
-    frame: false, 
+    frame: false,
     transparent: true,
+
     x: screenWidth - windowWidth - 20,
-  y: 20,
+    y: 20,
 
     webPreferences: {
       contextIsolation: true
@@ -21,17 +28,17 @@ function createWindow() {
   win.loadFile("src/index.html");
 }
 
-app.whenReady().then(createWindow);
-const AutoLaunch = require('auto-launch');
+app.whenReady().then(() => {
+  createWindow();
 
-const appLauncher = new AutoLaunch({
-  name: 'Calendar~cer',   
+  const appLauncher = new AutoLaunch({
+    name: "Calendar~cer",
+  });
+
+  appLauncher.isEnabled().then((isEnabled) => {
+    if (!isEnabled) appLauncher.enable();
+  });
 });
-
-appLauncher.isEnabled().then((isEnabled) => {
-  if (!isEnabled) appLauncher.enable();
-});
-
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
