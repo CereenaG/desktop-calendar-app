@@ -32,6 +32,8 @@ JavaScript
 electron-builder
 
 📂 Project Structure
+```md
+```text
 electron-app-template/
 ├── src/
 │   ├── index.html
@@ -43,44 +45,45 @@ electron-app-template/
 ├── package-lock.json
 ├── .gitignore
 └── README.md
-
+```
 
 node_modules/ and dist/ are generated automatically and are excluded using .gitignore.
 
 ⚙️ Setup Instructions
 1️⃣ Clone the repository
+```bash
 git clone https://github.com/CereenaG/desktop-calendar-app.git
 cd electron-app-template
-
+```
 2️⃣ Install dependencies
-npm install
+`npm install`
 
 ▶️ Run the App (Development Mode)
-npm start
+`npm start`
 
 
 This will launch the Electron application in development mode.
 
 📦 Build the Desktop Application
-npm run build
+`npm run build`
 
 
-After building, the executable/installer will be generated inside the dist/ directory.
+After building, the executable/installer will be generated inside the `dist/ directory`.
 
 🧠 How the App Works
 
-main.js
+`main.js`
 Handles the Electron main process and creates the application window.
 
-src/index.html
+`src/index.html`
 Defines the UI structure of the application.
 
-src/style.css
+`src/style.css`
 Handles styling and window drag behavior for the frameless window.
 
-src/script.js
+`src/script.js`
 Contains the frontend logic and interactions.
 
 
 
-GitHub: https://github.com/CereenaG
+GitHub: `https://github.com/CereenaG`
